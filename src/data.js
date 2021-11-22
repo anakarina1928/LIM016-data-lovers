@@ -1,14 +1,38 @@
+const functionAll = (array, countries) => {
 
+  //const newCountry = [];
+  return array.filter(athlete => athlete.team === countries);//el array de atletas que pertenecen a un pais
 
-export const functionAll = (datos) => {
-  const arrayAthletes = datos.athletes;
-  //const arr2 = [];
-  arrayAthletes.filter(function (person) { //person es el nuevo objeto recorrido
     //console.table(person, 'hola'); //para filtrar toda la tabla de datos
-    console.log(person.team, 'holi'); //para filtrar por categorias
-    return person.age;
+    //newCountry.push(person.team);
     
+    //console.log(person.team, 'holi'); //para filtrar por categorias   
+
+  //noRepeatCountry = new Set (newCountry);//El SET es para que no se repitan los países
+  
+
+  //console.log(newCountry);
+    //PARA ORDENAR LOS PAÍSES DE LA A - Z
+    
+  //console.log(noRepeatCountry);
+}
+const genderAll = (array) => {
+  //const newCountry = [];
+  //return array.filter(gen2 => gen2.gender===gender); 
+  const newArrGender = array.map(gen2 => {
+    return gen2.gender;  
   });
+    return new Set(newArrGender);
+}
+
+const allCountries = (countries) =>{ //SELECT --- Como coloco opciones en un select dinamico
+  const newArrCountries = countries.map(newTeam =>{
+   return newTeam.team;
+  });
+    return new Set(newArrCountries); //devuelve una coleccion de valores únicos
+  //return console.log(typeof new Set(newArrCountries)); 
+  
+}
 
 
 /*exporto mi funcion para usarla en otro partes de la aplicacion*/ 
@@ -25,7 +49,7 @@ export const sortData = (data, sortBy, sortOrder) =>{
         return data.sort(sortBy).reverse();
     }
    
-   },
+   }
 
   export const computeData = (datos, medal) =>{
     const arrayOfTeam =[];
@@ -39,6 +63,15 @@ export const sortData = (data, sortBy, sortOrder) =>{
         teamOfSilver.push(totalSilverTeam)
       }
       const uniqueTeam = new Set (teamOfSilver)
-      console.log(uniqueTeam);
+      //console.log(uniqueTeam);
    }
+
+   export  {
+    functionAll,
+    allCountries,
+    genderAll
+  }
+
+
+
 

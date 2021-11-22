@@ -1,213 +1,116 @@
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+@import url('//db.onlinewebfonts.com/c/09de1f56f82933ed8124b02222d46188?family=Rio2016');
 *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box; /*para mover el modelo de caja*/
 }
-body {
+html, body{
     counter-reset: none;
-}
-
-.headerLogo{   
+    height: 100%;
     width: 100%;
-    height: 50%;;
-}
-
-.carousel{
-    display:inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width:-webkit-fill-available;
-    height: 50px;
-}
-   
-.carouselImg{
-    height:140px;
-    width: 900px;
-    margin: 2px;
-    padding: 5px
-}
-
-.filterContainer{
-    background-color: #EDCF36;
-    margin: auto;
-    height: 60px;
-}
-
-.filter{
-    width: 33%;
-    padding: 5px;   
-    margin: auto;
-    position: relative; /*contenedor padre*/ 
-    
-}
-.select{
-    background-color: white;
-    border-radius: 5px;
-    height: 50px;
-    cursor: pointer;
     display: flex;
-    justify-content:space-between;
-    color: #5A5A5A;
-    align-items: center;
+    flex-direction: column;
 }
-.select:hover{
-    border: 2px solid #325665;  
-    box-shadow:1px 5px 5px -5px gray;
+/*----------------------HEADER------------------------*/
+header{
+    justify-content: center;
+    width: 100%;
 }
-.select i{
-    font-size: 17px;
-    margin-right: 10px;
-    color: #325665;
+.containerHeader{
+    display: flex;
+    background: url(./imagenes/headerFondo.png);
+    background-size: cover;   
+    height: 130px;
+    justify-content: flex-start;
+    align-items:center;
 }
-a{
-    text-decoration: none;
+.containerHeader img{
+    width:210px; 
+	height: 90px; 
+    margin-left: 165px;
 }
-.titulo{
+.containerHeader p{
+    font-family: "Rio2016";
+    font-size: 30px;
+    color: #0089ab ;
+    margin-left: 30px;
+    margin-top: -60px;
+}
+/*----------------------MAIN------------------------*/
+main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+main p{
+    flex-direction: column;
+
+}
+/*----------------------FOOTER------------------------*/
+footer{
+    display: flex;
+    background-color: #00133A;
+    color: white;
     font-family: 'Handlee', cursive;
-    font-size: 20px;
-    margin-left: 10px ;
-    color: black;
-    margin: 5px;
-}
-.options{
-    background-color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    max-height: 195px;
+    height: 270px;
     width: 100%;
-    overflow: auto;
-    z-index: 100; /*para que quede por encima de los elementos*/
-    display: none;
-    transition: 700ms;
+    justify-content: space-around;
+    padding: 20px;
 }
-.options.active{ /*la clase active para esconder y ocultar contenido*/
-    display: block;
-}
-/*ANIMACIÓN PARA ABRIR Y ESCONDER OPCIONES*/
-
-.contentOption{
+.socialMedia{
     display: flex;
-    align-items: center;
-    border-bottom: 2px;
+    width: 250px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 80px;
+}
+.socialMedia p{
+    font-weight: bold;
+    font-size: 18px;
+    width: 170px;
+    text-align: center;
     padding: 8px;
 }
-.contentOption img{
-    width: 50px;
-    margin-right: 20px;
-    margin-left: 15px;
-}
-.contentOption:hover{
-    background-color: #b4b79b;  
-}
-.contentOption:hover .titulo{
-    color: #355562;
-}
-.footer{
-    background-color: black;
-    color: white;
-    text-align:center;
-    font-family: 'Handlee', cursive;
-    padding: 20px;
-    margin-top: 10px;
-}
-.facebook{
+.fity{
     border-radius: 50%;
-    width: 35px;
-    padding: 5px;
-    position: absolute;   
-    left: 800px;
-    top: 430px;
+    width: 175px;  
+    flex-direction: row;
+    cursor: pointer;
 }
-.instagram{
-    border-radius: 50%;
-    width: 35px;
-    padding: 5px;
-    position: absolute;   
-    left: 850px;
-    top: 430px;
+.facebook,
+.instagram,
+.twitter,
+.youtube
+{    
+   height: 40px;
 }
-.twitter{
-    border-radius: 50%;
-    width: 35px;
-    padding: 5px;
-    position: absolute;   
-    left: 900px;
-    top: 430px;
-}
-.youtube{
-    border-radius: 50%;
-    width: 35px;
-    padding: 5px;
-    position: absolute;   
-    left: 950px;
-    top: 430px;
-  }
-
-.sportsContainer{
+.logoFoo{
     display: flex;
+    height: 160px;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: #49d317d0;/* un fondo color verde para la imagen*/
-    border-radius: 20px;
-    height:fit-content;
-    width: fit-content;
-    margin-top: 1rem;
-    
 }
-.classAthlete{
-    border-radius: 15px;
+.footerLogo{
+    width: 100px;
+    height: 140px;
 }
-.boxImgAthlete{
-    align-self: center;
-    justify-content: center;
-    min-width: max-content;
-    /*border-radius: 20px;*/
+.logoFoo p{
+    text-align: justify;
+    width: 330px;
+    padding-left: 15px;
+    height: 90px;
 }
-.tableAthletes{
-    justify-content: center;
-    min-width: max-content;
-    max-width: 100%;
-    max-height: 100%;
-    margin: .5em;
-}
-
-.grid {
+.copyright{ 
     display: flex;
-    flex-flow: wrap;
-    gap: 1rem 1rem;
+    flex-direction: column;
+    height: 180px;
+    justify-content: flex-end;
 }
+.copyright p{
+ 
+    width: 280px;
+    text-align: center;
+    font-size: 12px;
 
-/* VENTANA MODAL DE LA TABLA DETALLADA*/
-.modal-container{
-position: fixed;
-display: flex;
-background-color: rgb(255, 255, 255);
-opacity: 1;
-top: 10%;
-left: 0;
-width: 100%;
-height: 80%;
-}
-.show{
-    pointer-events: auto;
-    opacity: 1;
-}
-.detailsMedal{
-table-layout: fixed;
-width: 100%;
-justify-content: center;
-}
-tr{
-width: 100%;
-left: 10%;
-top: 40px;
-font-family: Handlee;
-font-style: normal;
-font-weight: normal;
-font-size: 30px;
-line-height: 35px;
-text-align: center;
-color: #000000;
+    
 }
