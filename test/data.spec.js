@@ -1,5 +1,6 @@
 import { functionAll, filterByTeamFunc, sortData, sortByName, computeData } from '../src/data.js';
 
+import { functionAll,filterByTeamFunc,sortData, sortByName, computeData, computeDataTwo } from '../src/data.js';
 
 describe('probando la funcion functionAll', () => {
 
@@ -49,7 +50,8 @@ describe('probando la funcion functionAll', () => {
 });
 
 describe('probando la funcion sortData', () => {
-  const arrayTest2 = [{
+
+  let arrayTest2 =[ {
     "name": "Robson Donato Conceio",
     "gender": "M",
     "height": "171",

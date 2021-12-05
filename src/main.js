@@ -60,6 +60,7 @@ const generateOptionTemplate = (arrayF) => {
 // variable que tiene al opcion predeterminada de los select
 const OptionselectedTemplate = `<option value="todos" selected="selected"> Todos </option>`;
 
+
 //funcion para insertar las opciones de los dos select en html
 const insertHtmArray = (elemet, htmlArray) => {
   elemet.innerHTML =

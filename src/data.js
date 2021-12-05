@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */ //Desactive esa regla en el eslin ((Set y Map))
 
 //FILTRO GENERAL:
 const functionAll = (array, condicion) => {
