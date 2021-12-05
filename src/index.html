@@ -45,8 +45,6 @@
     </ul>
   </div>
  
-
-  <br>
   <!--aqui va el filtro y el ordenar-->
   <section class="filterContainer" id="principal">
       
@@ -75,7 +73,7 @@
         <!-- Lista de selección  para ordenar-->
 
         <div id="displayOrder" class="filterTeamAndSport">
-          <label>ORDENAR:</label>
+          <label>ORDENAR:<br></label>
           <select id="orderBySelect" name="combo">
             <!-- Opciones de la lista (*con selected puedo colocar una opcion por defecto* OJO) -->
             <option value="1">Edad</option>
@@ -85,7 +83,11 @@
         </div>
 
       </section>
-  
+      <!----Buscador---->
+      <div class="containerSearch">
+        <input type="text" id="search" class="search" placeholder="Encuentra a un atleta ">
+        <i class="fas fa-search" id="i"></i>
+      </div>
 
       <!--mensaje de error-->
       <section id="error" class="error2">
@@ -93,11 +95,7 @@
 
         <img class="imgMsjError" src="./imagenes/mascotasoficiales.png">
       </section>
-      <!----Buscador---->
-      <div class="containerSearch">
-        <input type="text" id="search" class="search" placeholder="Encuentra a un atleta ">
-        <i class="fas fa-search" id="i"></i>
-      </div>
+     
       
       <section id="gridForTest" class="grid">
         <!----plantilla de los atletas-->

@@ -1,14 +1,9 @@
-import { functionAll,filterByTeamFunc,sortData, sortByName } from '../src/data.js';
+import { functionAll, filterByTeamFunc, sortData, sortByName, computeData } from '../src/data.js';
 
 
 describe('probando la funcion functionAll', () => {
-  it('debe ser una funcion', () => {
-    expect(typeof functionAll).toBe('function');
-  }); 
-});
 
-it ('deberia retornar cuantos atletas por el pais "France', ()=>{
-  let arrayTest = [  {
+  const arrayTest = [{
     "name": "Tijana Bogdanovi",
     "gender": "F",
     "height": "172",
@@ -44,20 +39,17 @@ it ('deberia retornar cuantos atletas por el pais "France', ()=>{
     "event": "Rowing Men's Lightweight Coxless Fours",
     "medal": "Bronze"
   }];
-  let testFunctionAll = functionAll(arrayTest, filterByTeamFunc('France'));
-  expect (testFunctionAll.length).toBe(1);
+  it('deberia retornar cuantos atletas por el pais "France', () => {
+
+    let testFunctionAll = functionAll(arrayTest, filterByTeamFunc('France'));
+    expect(testFunctionAll.length).toBe(1);
+  });
+
+  
 });
 
 describe('probando la funcion sortData', () => {
-  it('is a function', () => {
-    expect(typeof sortData).toBe('function');
-  });
-  
-});
-
-it ('deberia ordenar atletas de manera descendente',() => {
-  
-  let arrayTest2 =[ {
+  const arrayTest2 = [{
     "name": "Robson Donato Conceio",
     "gender": "M",
     "height": "171",
@@ -94,10 +86,80 @@ it ('deberia ordenar atletas de manera descendente',() => {
     "medal": "Bronze"
   }];
 
-  let testSortData = sortData(arrayTest2, sortByName, false);
+  it('deberia ordenar atletas de manera descendente', () => {
 
-  expect (testSortData[0].name).toBe("Sally Conway");
-  expect (testSortData[1].name).toBe("Robson Donato Conceio");
-  expect (testSortData[2].name).toBe("Julio");
+    let testSortData = sortData(arrayTest2, sortByName, false);
+
+    expect(testSortData[0].name).toBe("Sally Conway");
+    expect(testSortData[1].name).toBe("Robson Donato Conceio");
+    expect(testSortData[2].name).toBe("Julio");
+  });
+
+
 });
 
+describe('probando la funcion computeData', () => {
+  const arraytest3 = [{
+
+    "name": "John \"Jack\" Conger",
+    "gender": "M",
+    "height": "193",
+    "weight": "80",
+    "sport": "Swimming",
+    "team": "United States",
+    "noc": "USA",
+    "age": 21,
+    "event": "Swimming Men's 4 x 200 metres Freestyle Relay",
+    "medal": "Gold"
+  },
+  {
+    "name": "Kevin Cordes",
+    "gender": "M",
+    "height": "196",
+    "weight": "88",
+    "sport": "Swimming",
+    "team": "United States",
+    "noc": "USA",
+    "age": 22,
+    "event": "Swimming Men's 4 x 100 metres Medley Relay",
+    "medal": "Gold"
+  },
+  {
+    "name": "DeMarcus Amir Cousins",
+    "gender": "M",
+    "height": "210",
+    "weight": "122",
+    "sport": "Basketball",
+    "team": "United States",
+    "noc": "USA",
+    "age": 25,
+    "event": "Basketball Men's Basketball",
+    "medal": "Gold"
+  },
+  {
+    "name": "J'den Michael Tbory Cox",
+    "gender": "M",
+    "height": "180",
+    "weight": "86",
+    "sport": "Wrestling",
+    "team": "United States",
+    "noc": "USA",
+    "age": 21,
+    "event": "Wrestling Men's Light-Heavyweight, Freestyle",
+    "medal": "Bronze"
+
+  }]
+
+  it('deberia indicar cuantas medallas de oro, plata y Bronce gano USA', () => {
+    
+    let featuredAthletes = computeData(arraytest3);
+    
+
+    expect(featuredAthletes[0].gold).toBe(3);
+    expect(featuredAthletes[0].silver).toBe(0);
+    expect(featuredAthletes[0].bronce).toBe(1);
+    expect(featuredAthletes[0].total).toBe(4);
+
+  });
+
+});
