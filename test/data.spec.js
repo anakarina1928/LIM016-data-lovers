@@ -1,167 +1,197 @@
-import { functionAll, filterByTeamFunc, sortData, sortByName, computeData } from '../src/data.js';
+import {
+  functionAll,
+  filterBySportFunc,
+  filterByTeamFunc,
+  filterByGender,
+  sortData,
+  sortByName,
+  sortByAge,
+  computeData,
+  allCountries,
+  allSport,
+  genderAll,
+  sortByTotalMedals
 
-import { functionAll,filterByTeamFunc,sortData, sortByName, computeData, computeDataTwo } from '../src/data.js';
+} from '../src/data.js';
 
 describe('probando la funcion functionAll', () => {
 
   const arrayTest = [{
     "name": "Tijana Bogdanovi",
     "gender": "F",
-    "height": "172",
-    "weight": "52",
     "sport": "Taekwondo",
     "team": "Serbia",
-    "noc": "SRB",
-    "age": 18,
-    "event": "Taekwondo Women's Flyweight",
-    "medal": "Silver"
   },
   {
     "name": "Andreea Boghian",
     "gender": "F",
-    "height": "186",
-    "weight": "78",
     "sport": "Rowing",
     "team": "Romania",
-    "noc": "ROU",
-    "age": 24,
-    "event": "Rowing Women's Coxed Eights",
-    "medal": "Bronze"
   },
   {
     "name": "Thibault Colard",
     "gender": "M",
-    "height": "187",
-    "weight": "70",
     "sport": "Rowing",
     "team": "France",
-    "noc": "FRA",
-    "age": 24,
-    "event": "Rowing Men's Lightweight Coxless Fours",
-    "medal": "Bronze"
   }];
+
   it('deberia retornar cuantos atletas por el pais "France', () => {
 
-    let testFunctionAll = functionAll(arrayTest, filterByTeamFunc('France'));
-    expect(testFunctionAll.length).toBe(1);
+    let result = functionAll(arrayTest, filterByTeamFunc('France'));
+    expect(result).toHaveLength(1);
   });
 
-  
+
+  it('deberia retornar cuantos  atletas del deporte Rowing', () => {
+
+    let result = functionAll(arrayTest, filterBySportFunc('Rowing'));
+    expect(result).toHaveLength(2);
+
+  });
+
+  it('deberia retornar solo atletas del genero femenino ', () => {
+
+    let result = functionAll(arrayTest, filterByGender('F'));
+
+    expect(result).toHaveLength(2);
+
+  });
+
 });
+
+describe('probando new set', () => {
+
+
+  it('debe retornar string sin repetecion #1', () => {
+    let arrayTest = [{ "team": "Serbia" }, { "team": "Romania" }, { "team": "France" }, { "team": "France" }, { "team": "France" }];
+    let result = allCountries(arrayTest)
+    expect(result.size).toEqual(3)
+    expect(result.has('Romania')).toBeTruthy()
+
+  })
+
+  it('debe retornar string sin repetecion #2', () => {
+    let arrayTest = [{ "sport": "futbol" }, { "sport": "futbol" }, { "sport": "ballet" }, { "sport": "ballet" }, { "sport": "ballet" }];
+    let result = allSport(arrayTest)
+    expect(result.size).toEqual(2)
+    expect(result.has('ballet')).toBeTruthy()
+
+  })
+  it('debe retornar string sin repetecion #3', () => {
+    let arrayTest = [{ "gender": "F" }, { "gender": "F" }, { "gender": "M" }];
+    let result = genderAll(arrayTest)
+    expect(result.size).toEqual(2)
+    expect(result.has('M')).toBeTruthy()
+
+  })
+
+})
 
 describe('probando la funcion sortData', () => {
 
-  let arrayTest2 =[ {
+  let arrayTest = [{
     "name": "Robson Donato Conceio",
-    "gender": "M",
-    "height": "171",
-    "weight": "57",
-    "sport": "Boxing",
-    "team": "Brazil",
-    "noc": "BRA",
-    "age": 27,
-    "event": "Boxing Men's Lightweight",
-    "medal": "Gold"
+    "age": 25,
   },
   {
     "name": "Julio",
-    "gender": "M",
-    "height": "193",
-    "weight": "80",
-    "sport": "Swimming",
-    "team": "United States",
-    "noc": "USA",
-    "age": 21,
-    "event": "Swimming Men's 4 x 200 metres Freestyle Relay",
-    "medal": "Gold"
+    "age": 95,
   },
   {
     "name": "Sally Conway",
-    "gender": "F",
-    "height": "167",
-    "weight": "70",
-    "sport": "Judo",
-    "team": "Great Britain",
-    "noc": "GBR",
-    "age": 29,
-    "event": "Judo Women's Middleweight",
-    "medal": "Bronze"
+    "age": 50,
   }];
+
 
   it('deberia ordenar atletas de manera descendente', () => {
 
-    let testSortData = sortData(arrayTest2, sortByName, false);
+    let arrayExpected = [{
+      "name": "Sally Conway",
+      "age": 50,
+    },
+    {
+      "name": "Robson Donato Conceio",
+      "age": 25,
+    },
+    {
+      "name": "Julio",
+      "age": 95,
+    }]
+    let result = sortData(arrayTest, sortByName, false);
 
-    expect(testSortData[0].name).toBe("Sally Conway");
-    expect(testSortData[1].name).toBe("Robson Donato Conceio");
-    expect(testSortData[2].name).toBe("Julio");
+    expect(result).toStrictEqual(arrayExpected);
+
   });
+
+  it('deberia ordenar por edad ascendente a los atletas', () => {
+
+    let arrayExpected = [{
+      "name": "Robson Donato Conceio",
+      "age": 25,
+    },
+    {
+      "name": "Sally Conway",
+      "age": 50,
+    },
+    {
+      "name": "Julio",
+      "age": 95,
+
+    }]
+    let result = sortData(arrayTest, sortByAge, true);
+
+    expect(result).toStrictEqual(arrayExpected);
+
+  });
+
+
+  it('deberia retornar 0 cuando se tenga el mismo nombre ', () => {
+
+    let result = sortByName({ "name": "Julio" }, { "name": "Julio" });
+
+    expect(result).toEqual(0);
+
+  });
+
+  it('deberia retornar 0 cuando se tenga la misma edad', () => {
+
+    let result = sortByAge({ "age": "29" }, { "age": "29" });
+
+    expect(result).toEqual(0);
+
+  });
+
+  it('debe ordenar de manera ascendente todos los totales', () => {
+    let arrayTest = [{ "total": 10, }, { "total": 90, }, { "total": 30, }];
+    let arrayExpected = [{ "total": 90, }, { "total": 30, }, { "total": 10, }];
+
+    let result = arrayTest.sort(sortByTotalMedals);
+    expect(result).toEqual(arrayExpected);
+  })
 
 
 });
 
 describe('probando la funcion computeData', () => {
-  const arraytest3 = [{
-
-    "name": "John \"Jack\" Conger",
-    "gender": "M",
-    "height": "193",
-    "weight": "80",
-    "sport": "Swimming",
-    "team": "United States",
-    "noc": "USA",
-    "age": 21,
-    "event": "Swimming Men's 4 x 200 metres Freestyle Relay",
-    "medal": "Gold"
-  },
-  {
-    "name": "Kevin Cordes",
-    "gender": "M",
-    "height": "196",
-    "weight": "88",
-    "sport": "Swimming",
-    "team": "United States",
-    "noc": "USA",
-    "age": 22,
-    "event": "Swimming Men's 4 x 100 metres Medley Relay",
-    "medal": "Gold"
-  },
-  {
-    "name": "DeMarcus Amir Cousins",
-    "gender": "M",
-    "height": "210",
-    "weight": "122",
-    "sport": "Basketball",
-    "team": "United States",
-    "noc": "USA",
-    "age": 25,
-    "event": "Basketball Men's Basketball",
-    "medal": "Gold"
-  },
-  {
-    "name": "J'den Michael Tbory Cox",
-    "gender": "M",
-    "height": "180",
-    "weight": "86",
-    "sport": "Wrestling",
-    "team": "United States",
-    "noc": "USA",
-    "age": 21,
-    "event": "Wrestling Men's Light-Heavyweight, Freestyle",
-    "medal": "Bronze"
-
-  }]
+  const arrayTest = [ {"team": "United States","medal": "Gold"},
+                      {"team": "United States","medal": "Gold"},
+                      {"team": "United States","medal": "Gold"},
+                      {"team": "United States","medal": "Bronze"},
+                      {"team": "United States","medal": "Silver"},
+                      ];
 
   it('deberia indicar cuantas medallas de oro, plata y Bronce gano USA', () => {
-    
-    let featuredAthletes = computeData(arraytest3);
-    
 
-    expect(featuredAthletes[0].gold).toBe(3);
-    expect(featuredAthletes[0].silver).toBe(0);
-    expect(featuredAthletes[0].bronce).toBe(1);
-    expect(featuredAthletes[0].total).toBe(4);
+    let result = computeData(arrayTest);
+
+    expect(result[0].gold).toBe(3);
+    expect(result[0].silver).toBe(1);
+    expect(result[0].bronce).toBe(1);
+    expect(result[0].total).toBe(5);
 
   });
 
 });
+
+
+

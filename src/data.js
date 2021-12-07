@@ -1,35 +1,27 @@
-/* eslint-disable no-undef */ //Desactive esa regla en el eslin ((Set y Map))
-
 //FILTRO GENERAL:
 const functionAll = (array, condicion) => {
   return array.filter(condicion);
 };
 
-/* funcion para obtener un arreglo de solo paises, deportes y genero*/
-const allCountries = (countries) => {
-  const newArrCountries = countries.map(newTeam => {
+/* funcion para que no se repitan los  paises, deportes y genero*/
+const allCountries = (athletes) => {
+  const newArrCountries = athletes.map(newTeam => {
     return newTeam.team
   });
   return new Set(newArrCountries);
 }
 
-const allSport = (sport) => {
-  const newArrSport = sport.map(newTeam => {
+const allSport = (athletes) => {
+  const newArrSport = athletes.map(newTeam => {
     return newTeam.sport
   });
   return new Set(newArrSport);
 }
 
-const allTeams = (athletes) => {
-  const allTeamsWithDuplicates = athletes.map(person => {
-    return person.team
-  });
-  return new Set(allTeamsWithDuplicates);
-}
 
-const genderAll = (array) => {
-  const newArrGender = array.map(gen2 => {
-    return gen2.gender;
+const genderAll = (athletes) => {
+  const newArrGender = athletes.map(newGender => {
+    return newGender.gender;
   });
   return new Set(newArrGender);
 
@@ -83,6 +75,14 @@ const sortByAge = (athlete1, athlete2) => {
   return 0;
 };
 
+ const sortByTotalMedals= (prev, next) =>{
+  if (prev.total < next.total) {
+    return 1;
+  }
+  if (prev.total > next.total) {
+    return -1;
+  } return 0;
+};
 
 const computeData = (datos) => {
   const mapCountry = new Map();
@@ -127,17 +127,10 @@ const computeData = (datos) => {
       total: value.total
     };
     array.push(totalMedalByNoc);
-    //console.log(totalMedalByNoc);
+   
   })
   //Ordenando de mayor a menor el total de medallas por pais
-  return array.sort(function (prev, next) {
-    if (prev.total < next.total) {
-      return 1;
-    }
-    if (prev.total > next.total) {
-      return -1;
-    } return 0;
-  });
+  return array.sort(sortByTotalMedals);
 };
 
 const computeDataTwo = (datos) => {
@@ -195,15 +188,11 @@ const computeDataTwo = (datos) => {
     } return 0;
   });
 }
-//FUNCION QUE REFRESCA LA PAG 
-function reload() {
-  location.reload();
-}
+
 export {
   functionAll,
   allCountries,
   allSport,
-  allTeams,
   sortData,
   sortByName,
   sortByAge,
@@ -213,5 +202,5 @@ export {
   filterByTeamFunc,
   filterBySportFunc,
   filterByGender,
-  reload,
+  sortByTotalMedals
 }

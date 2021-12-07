@@ -12,7 +12,6 @@ import {
   allCountries,
   allSport,
   computeData,
-  reload
 } from "./data.js";
 const arrayAthletes = datos.athletes;//aqui guardo la data de todos los atletas
 const arrayCountries = sortData(Array.from(allCountries(arrayAthletes))).reverse();//array de paises
@@ -26,7 +25,7 @@ const containerGender = document.querySelector('.containerGender');//form gender
 const tableRankingTeam = document.getElementById("tableMedals"); //accedo a la tabla en el html
 const modalTable = document.getElementById("tableMedalsModal");
 const button = document.getElementById("buttonMedals"); //accedo al boton de ver mas
-const search = document.getElementById('search');
+const search = document.getElementById('search');//buscador
 const buttonClose = document.getElementById("close"); //accedo a boton de cerrar
 
 const generateAthleteTemplate = (athlete) => {
@@ -141,14 +140,14 @@ const filterBy = () => {
 };
 //ORDENAR POR:
 orderBySelect.addEventListener("change", (event) => {
-  const sortByValue =event.target.value; /*guardo el eveto(la accion del usuario), su target y el valor que le puse*/
-  
+  const sortByValue = event.target.value; /*guardo el eveto(la accion del usuario), su target y el valor que le puse*/
+
   if (sortByValue === "1") {
     //lo comparo
     //Aqui utilizo mi funcion sortData para ordenar mi arreglo original "arrayAthletes", le paso mi
     //funcion de comparacion "sorByAge" y le indico la ordenacion que es ascendente con "true"
 
-    let athleteSortByAge = sortData( filtersToSort, sortByAge, true ); /*utilizo como argumento mi nuevo 
+    let athleteSortByAge = sortData(filtersToSort, sortByAge, true); /*utilizo como argumento mi nuevo 
     arreglo que converti en string.*/
     insertHtmlAtheles(athleteSortByAge.map(generateAthleteTemplate).join(""));
   }
@@ -166,9 +165,11 @@ orderBySelect.addEventListener("change", (event) => {
 //BUSCADOR
 const searchingAth = () => {
   let search2 = search.value.toLowerCase();
+  
   const searching = arrayAthletes.filter(athlete => {
     return athlete.name.toLowerCase().includes(search2);
   });
+
   if (searching.length !== 0) {
     insertHtmlAtheles(searching.map(generateAthleteTemplate).join(''));
     document.getElementById("containerFatherMain").style.display = "none"; //ocultamos
@@ -262,6 +263,10 @@ function goTop(pxPantalla) { //Parametro de cuanto px de pantalla quiero que apa
 }
 goTop(1000);
 
+//FUNCION QUE REFRESCA LA PAG 
+function reload() {
+  location.reload();
+}
 team.addEventListener("change", filterBy);
 sport.addEventListener("change", filterBy);
 gender.addEventListener("change", filterBy);

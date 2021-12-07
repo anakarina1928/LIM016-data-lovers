@@ -490,8 +490,11 @@ li:hover {
     cursor: pointer;
 }
 
-
+.containerSearch:hover > .search {
+    width: 190px;   
+}
 @media only screen and (min-width: 768px) and (max-width: 1024px){
+    
     .filterContainer{
         display:flex; 
         flex-direction: column; 
@@ -514,6 +517,7 @@ li:hover {
         margin-top: 20px;
         height: 350px;
         background: lightgrey;
+        justify-content: space-around;
     }
     .containerFatherMain{
         display: flex;
@@ -537,7 +541,7 @@ li:hover {
         background: lightgrey;
     }
     .error2{
-        margin-top: 100px;
+        margin-top: 140px;
         margin-bottom: 350px;
     }
     .photoAthletes{
