@@ -10,7 +10,8 @@ import {
   allCountries,
   allSport,
   genderAll,
-  sortByTotalMedals
+  sortByTotalMedals,
+  computeDataTwo
 
 } from '../src/data.js';
 
@@ -168,11 +169,18 @@ describe('probando la funcion sortData', () => {
     let result = arrayTest.sort(sortByTotalMedals);
     expect(result).toEqual(arrayExpected);
   })
+  
+  it('deberia retornar 0 cuando se tenga la misma edad', () => {
 
+    let result = sortByTotalMedals({ "total": "2" }, { "total": "2" });
+
+    expect(result).toEqual(0);
+
+  });
 
 });
 
-describe('probando la funcion computeData', () => {
+describe('probando la funcion computeData y computeDataTwo', () => {
   const arrayTest = [ {"team": "United States","medal": "Gold"},
                       {"team": "United States","medal": "Gold"},
                       {"team": "United States","medal": "Gold"},
@@ -184,12 +192,22 @@ describe('probando la funcion computeData', () => {
 
     let result = computeData(arrayTest);
 
+    expect(result[0].gold).toEqual(3);
+    expect(result[0].silver).toEqual(1);
+    expect(result[0].bronce).toEqual(1);
+    expect(result[0].total).toEqual(5);
+
+  });
+
+  it('deberia indicar cuantas medallas de oro, plata y Bronce gano USA #2', () =>{
+
+    let result = computeDataTwo(arrayTest);
+
     expect(result[0].gold).toBe(3);
     expect(result[0].silver).toBe(1);
     expect(result[0].bronce).toBe(1);
     expect(result[0].total).toBe(5);
-
-  });
+  })
 
 });
 

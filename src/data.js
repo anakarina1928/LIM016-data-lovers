@@ -137,14 +137,15 @@ const computeDataTwo = (datos) => {
   const mapAthletes = new Map();
   for (let j = 0; j < datos.length; j++) {
     const element = datos[j];
-    if (!mapAthletes.has(element.name)) { //probará su presencia en el objeto Set
+    const key = element.name + " " + element.team;
+    if (!mapAthletes.has(key)) { //probará su presencia en el objeto Set
       const initValueAthletes = {
         gold: 0,
         bronze: 0,
         silver: 0,
         total: 0
       }
-      mapAthletes.set(element.name + " " + element.team, initValueAthletes) //El key es element.name y el value es todo lo q esta en la var initValueAthletes
+      mapAthletes.set(key, initValueAthletes) //El key es element.name y el value es todo lo q esta en la var initValueAthletes
       //console.log(mapAthletes);
     }
   }
@@ -162,8 +163,8 @@ const computeDataTwo = (datos) => {
       athletes.silver = athletes.silver + 1;
     }
     athletes.total = athletes.total + 1;
-    mapAthletes.set(element.name + " " + element.team, athletes) ///Aqui reemplazamos con el nuevo objeto 
-    //console.log(mapAthletes);
+    mapAthletes.set(element.name + " " + element.team, athletes) //Aqui reemplazamos con el nuevo objeto 
+    
   }
   //transformando el Map en un array de atletas, pais y medallas  
   const arrayAthletes = [];
@@ -179,14 +180,7 @@ const computeDataTwo = (datos) => {
 
   })
   //Ordenando de mayor a menor el total de medallas por atletas 
-  return arrayAthletes.sort(function (prev, next) {
-    if (prev.total < next.total) {
-      return 1;
-    }
-    if (prev.total > next.total) {
-      return -1;
-    } return 0;
-  });
+  return arrayAthletes.sort(sortByTotalMedals);
 }
 
 export {

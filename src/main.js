@@ -165,7 +165,7 @@ orderBySelect.addEventListener("change", (event) => {
 //BUSCADOR
 const searchingAth = () => {
   let search2 = search.value.toLowerCase();
-  
+
   const searching = arrayAthletes.filter(athlete => {
     return athlete.name.toLowerCase().includes(search2);
   });
