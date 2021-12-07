@@ -2,7 +2,10 @@
 
 ## **1. Definición del producto**
 
-Es una pagina web referente a los atletas ganadores de melladas de las Olimpiadas de Rio 2016. Diseñada para ser intuitiva a la hora de buscar alguna información de interés a secar de cualquier atleta, país o deporte, siendo una experiencia agradable de búsqueda para el usuario, aunado a ello podrás encontrar el ranking de países con mas medallas ganadas y un visualización de los atletas con mayor numero de medallas.
+Es una pagina web referente a los atletas ganadores de melladas de las Olimpiadas de Rio 2016. Diseñada para ser intuitiva 
+a la hora de buscar alguna información de interés a secar de cualquier atleta, país o deporte, siendo una experiencia agradable 
+de búsqueda para el usuario, aunado a ello podrás encontrar el ranking de países con mas medallas ganadas y un visualización de los
+atletas con mayor numero de medallas.
 
 ### Puntos para definir el producto.
 
@@ -23,7 +26,8 @@ Es una pagina web referente a los atletas ganadores de melladas de las Olimpiada
 
 - ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
 
-   - Que nuestro usuario pueda visualizar  cuales son los paises con mas medallas ganadas, el gráfico representa el total de medallas que ha conseguido cada país, con esto nuestro        usuario podra buscar de mejor forma los atletas de su interes.
+   - Que nuestro usuario pueda visualizar  cuales son los paises con mas medallas ganadas, el gráfico representa el total de medallas
+    que ha conseguido cada país, con esto nuestro usuario podra buscar de mejor forma los atletas de su interes.
 
   ## **2. Plan de acción**
 
@@ -74,3 +78,5 @@ Es una pagina web referente a los atletas ganadores de melladas de las Olimpiada
 ## 3. Diseño:
 
 prototipo de baja fidelidad:
+
+![prototipo baja fidelidad-pagina principal](https://user-images.githubusercontent.com/91761048/145113424-96043c96-d6fe-499e-995a-fcafeede6673.PNG)
