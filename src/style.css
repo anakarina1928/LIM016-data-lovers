@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
-@import url('//db.onlinewebfonts.com/c/09de1f56f82933ed8124b02222d46188?family=Rio2016');
+@import url('https://db.onlinewebfonts.com/c/09de1f56f82933ed8124b02222d46188?family=Rio2016');
 * {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
     /*para mover el modelo de caja*/
 }
-html, body{
-  height: 100%;
 
+html , body{
+    height: 100%;
 }
 .imgHeader {
     display: flex;
@@ -166,9 +166,7 @@ ul.sliderImg li:target {
 #bigTable {
     display: none;
     bottom: 20px;
-    /* background-image: url(./imagenes/mascotas.png.jpeg);
-    background-size: 100% 100%;
-    opacity: 0.3; */
+   
 }
 
 .tableMedalsModal {
@@ -188,7 +186,7 @@ ul.sliderImg li:target {
 
 .divOfFeatureAthletes {
     display: flex;
-    /*flex-direction: column;*/
+   
 }
 
 .tableMedals {
@@ -279,9 +277,6 @@ button:hover {
 label {
     font-family: 'Handlee', cursive;
     justify-self: center;
-    /*font-size: 15px;*/
-    /*width: 200px;*/
-    /*margin-right: 10px;*/
     color: #f8f7f7;
     font-weight: bold;
 }
@@ -326,10 +321,6 @@ select:hover {
     width: 50%;
 }
 
-/*.f-a {
-    width: 25vw;
-}*/
-
 .photoAthletes {
     float: left;
     border-radius: 50%;
@@ -347,8 +338,6 @@ select:hover {
 .imageMedal img {
     top: 4rem;
     width: 8rem;
-    /*background-image: url(./imagenes/medallas.png);
-background-repeat: no-repeat;*/
     background-size: 70% 70%;
 }
 
@@ -378,7 +367,6 @@ background-repeat: no-repeat;*/
     box-sizing: border-box;
     background-repeat: round;
     background-size: contain;
-    /*background-position: center;*/
     border-radius: 20px;
     height: fit-content;
     width: fit-content;
@@ -441,49 +429,6 @@ padding: 0.5rem 0;
 .copyright p{
     text-align: center;
 }
-.socialMedia{
-display: flex;
-width: 250px;
-flex-direction: column;
-align-items: flex-start;
-margin-left: 80px;
-}
-.socialMedia p{
-font-weight: bold;
-font-size: 18px;
-width: 170px;
-text-align: center;
-padding: 8px;
-}
-.fity{
-border-radius: 50%;
-width: 175px;  
-flex-direction: row;
-cursor: pointer;
-}
-.facebook,
-.instagram,
-.twitter,
-.youtube
-{    
-height: 40px;
-}
-.logoFoo{
-display: flex;
-height: 160px;
-align-items: center;
-}
-.footerLogo{
-width: 100px;
-height: 140px;
-}
-.logoFoo p{
-text-align: justify;
-width: 330px;
-padding-left: 15px;
-height: 90px;
-}
-
 
 /*Boton volver Arriba*/
 
@@ -545,8 +490,11 @@ li:hover {
     cursor: pointer;
 }
 
-
+.containerSearch:hover > .search {
+    width: 190px;   
+}
 @media only screen and (min-width: 768px) and (max-width: 1024px){
+    
     .filterContainer{
         display:flex; 
         flex-direction: column; 
@@ -569,6 +517,7 @@ li:hover {
         margin-top: 20px;
         height: 350px;
         background: lightgrey;
+        justify-content: space-around;
     }
     .containerFatherMain{
         display: flex;
@@ -592,7 +541,7 @@ li:hover {
         background: lightgrey;
     }
     .error2{
-        margin-top: 100px;
+        margin-top: 140px;
         margin-bottom: 350px;
     }
     .photoAthletes{
