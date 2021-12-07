@@ -1,6 +1,6 @@
 
 
- ✔️## **1. Definición del producto**
+ ## ✔️1. Definición del producto
 
 Es una pagina web referente a los atletas ganadores de melladas de las Olimpiadas de Rio 2016. Diseñada para ser intuitiva 
 a la hora de buscar alguna información de interés a secar de cualquier atleta, país o deporte, siendo una experiencia agradable 
@@ -29,7 +29,7 @@ atletas con mayor numero de medallas.
    - Que nuestro usuario pueda visualizar  cuales son los paises con mas medallas ganadas, el gráfico representa el total de medallas
     que ha conseguido cada país, con esto nuestro usuario podra buscar de mejor forma los atletas de su interes.
 
- ✔️ ## **2. Plan de acción**
+  ## ✔️2. Plan de acción
 
 - Realizar historias de usuario.
 
@@ -75,7 +75,7 @@ atletas con mayor numero de medallas.
 - Manejo de repositorios de GitHub (clone | fork | gh-pages)
 - Colaboración en Github (branches | pull requests )
 
-✔️## 3. Diseño:
+## ✔️3. Diseño:
 
 -Prototipo de baja fidelidad:
 
@@ -85,5 +85,6 @@ atletas con mayor numero de medallas.
 
 ![prototipo en figma](https://user-images.githubusercontent.com/91761048/145114308-00ed0aea-0cd0-4094-9445-cff80a005ed6.PNG)
 
-✔️## 4.Link del plan de acción:💻
+## ✔️4.Link del plan de acción:💻
+
 Trello: https://trello.com/b/ie6yBVJQ/rio-2016
