@@ -88,3 +88,9 @@ atletas con mayor numero de medallas.
 ## ✔️4.Link del plan de acción:💻
 
 Trello: https://trello.com/b/ie6yBVJQ/rio-2016
+
+## ✔️5. Autoras:💜💯
+-Ana Karina Gonzalez
+-Karen Berrio
+-Naimerith Magdaleno
+
