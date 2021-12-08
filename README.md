@@ -31,7 +31,7 @@ atletas con mayor numero de medallas.
 
   ## ✔️2. Plan de acción
 
-- Realizar historias de usuario.
+
 
 ### **UX**
 
@@ -50,7 +50,7 @@ atletas con mayor numero de medallas.
 - Uso de condicionales.
 - Uso de bucles.
 - Uso de funciones (parámetros | argumentos | valor de retorno).
-- Manipular arrays (filter | map | sort | reduce).
+- Manipular arrays (filter | map | sort ).
 - Manejo de eventos.
 
 ### **DOM y Web APIs**
