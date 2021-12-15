@@ -85,11 +85,20 @@ atletas con mayor numero de medallas.
 
 ![prototipo en figma](https://user-images.githubusercontent.com/91761048/145114308-00ed0aea-0cd0-4094-9445-cff80a005ed6.PNG)
 
-## ✔️4.Link del plan de acción:💻
+## ✔️ 4.Pruebas unitarias
+Las Pruebas Unitarias (tests), permiten que las funciones encargadas de procesar, filtrar y ordenar la data, así como calcular estadísticas funcionen correctamente.
+
+Estas deben dar una cobertura del 70% de statements (sentencias), functions (funciones), lines (líneas), y branches (ramas) del archivo src/data.js que contenga las funciones.
+
+
+![pruebas unitarias](https://user-images.githubusercontent.com/91761048/146115237-67715dea-dae4-4912-9ae0-3642f048b490.PNG)
+
+
+## ✔️5.Link del plan de acción:💻
 
 Trello: https://trello.com/b/ie6yBVJQ/rio-2016
 
-## ✔️5. Autoras:💜💯
+## ✔️6. Autoras:💜💯
 
 -Ana Karina Gonzalez
 
